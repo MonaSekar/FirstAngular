@@ -1,0 +1,47 @@
+<style>
+    *{
+      font-size: 20px;
+    }
+  </style>
+<div>
+    <!-- <form>
+        
+            Eid<input type="number" name="eid" [(ngModel)]="e.Eid" required/>
+            <br/>
+            Ename<input type="text" name="ename" [(ngModel)]="e.Ename" required/>
+            <br/>
+            Salary<input type="number" name="esal" [(ngModel)]="e.Salary" required/>
+            <br/>
+            Date<input type="date" name="doj" [(ngModel)]="e.Doj" required/>
+            <br/>
+            <input type="submit" value="submit" (click)="AddEmployee()"/>
+    </form> -->
+
+  <form #addForm="ngForm" (submit)="AddEmployee()">
+        
+        Eid<input type="number" name="eid" [(ngModel)]="e.Eid" required/>
+        <br/>
+        Ename<input type="text" name="ename" [(ngModel)]="e.Ename" required/>
+        <br/>
+        Salary<input type="number" name="esal" min="100" max="50000" #sal="ngModel" [(ngModel)]="e.Salary" required/>
+        <!-- <span *ngIf="sal.touched && sal.dirty" style="color:red">
+            Salary should be between 100 and 5000 
+        </span> -->
+        <br/>
+        Date<input type="date" name="doj" [(ngModel)]="e.Doj"/>
+        <br/>
+        Department:
+        <div *ngFor="let dt of dpts">
+            <input type="radio" name="DptId" [value]="dt" [(ngModel)]="e.Dept"/>
+            {{ dt.DptName}}
+          </div>
+          <br/>
+        Skills:
+        <div *ngFor="let sk of sks">
+            <input type="checkbox" name="SkId" [value]="sk.SkTitle" [(ngModel)]="sk.SkTitle"/>
+            {{ sk.SkTitle }}
+          </div>
+        <br/>
+        <input type="submit" value="submit" [disabled]="!addForm.valid"/>
+    </form>
+</div>

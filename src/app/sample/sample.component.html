@@ -1,0 +1,17 @@
+<p>sample works!</p>
+
+<div>
+    <form>
+        Number 1: <input type="number" name="First" required [(ngModel)]="a"/>
+        <br>
+        Number 2: <input type="number" name="Second" required [(ngModel)]="b"/>
+        <br>
+        <input type="submit" value="Add" (click)="addNums()"/>
+    </form>
+</div>
+<h4 *ngIf="c>0">Sum : {{c}}</h4>
+<!-- <h4> Sum : {{a + b}}</h4> -->
+<input type="text" [(ngModel)] = "sname"/>
+<p>{{sname}}</p>
+
+<img [src]="picture" width="600" height="400">

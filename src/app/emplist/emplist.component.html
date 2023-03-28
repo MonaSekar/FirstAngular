@@ -1,0 +1,50 @@
+<p>emplist works!</p>
+<!-- <p> {{e|json }}</p>
+<p> {{e.Eid}}</p>
+<p> {{e.Ename}}</p>
+<p> {{e.Salary}}</p>
+<p> {{e.Doj | date}}</p>
+<p> {{e.Doj | date:'fullDate'}}</p>
+<p> {{e.Doj | date:'shortDate'}}</p>
+<p> {{e.Doj | date:'dd-MM-yyyy'}}</p> -->
+
+
+<!-- 
+<table border="1" >
+    <div *ngFor="let x of empArr">
+        
+        <tr *ngFor="let e1 of x | keyvalue" style="display: inline;">
+            <th>{{e1.key}}</th> 
+            <td>{{e1.value}}</td>
+        </tr>
+    </div>
+</table>  -->
+
+<div>
+    Enter Name to filter: 
+    <input [(ngModel)]="searchItem" type="text" />
+</div>
+
+<br><br>
+
+<table border="1">
+    <tr>
+        <th>EID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>DOJ</th>
+        <th colspan="2">Department</th>
+        <th colspan="2">SKills</th>
+    </tr>
+        <tr *ngFor="let x of empArr | empFilter:searchItem">
+            <td> {{ x.Eid }}</td>
+            <td> {{x.Ename}}</td>
+            <td> {{x.Salary}}</td>
+            <td> {{x.Doj | date}}</td>
+            <td> {{x.Dept.DptName}}</td>
+            <td>{{x.Dept.DptId}}</td>
+            <td *ngFor="let s of x.SKills" >
+                    <span *ngIf="s.selected==true">{{s.SkTitle}}</span>
+            </td>
+        </tr>
+</table>
